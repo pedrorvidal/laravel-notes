@@ -11,11 +11,6 @@ class MainController extends Controller
      *
      * @return null
      */
-    /**
-     * Function index
-     *
-     * @return null
-     */
     public function index()
     {
         dd('teste1');
