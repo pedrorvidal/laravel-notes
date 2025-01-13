@@ -13,7 +13,6 @@ class MainController extends Controller
      */
     public function index()
     {
-        dd('teste1');
-        die('teste2');
+        dd('return string');
     }
 }
