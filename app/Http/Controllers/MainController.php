@@ -9,7 +9,7 @@ class MainController extends Controller
     /**
      * Function index
      *
-     * @return null
+     * @return string
      */
     public function index()
     {
