@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     /**
-     * Function index
+     * Function index com descrição
      *
      * @return string
      */
