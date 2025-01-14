@@ -13,12 +13,6 @@ class MainController extends Controller
      */
     public function index()
     {
-        echo "hello";
-        echo "world";
-        echo "goodbye";
-        echo "goodbye";
-        echo "goodbye";
-
-        dd('return string');
+        dd('teste');
     }
 }
