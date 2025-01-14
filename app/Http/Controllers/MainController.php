@@ -18,10 +18,6 @@ class MainController extends Controller
         echo "goodbye";
         echo "goodbye";
         echo "goodbye";
-        echo "goodbye";
-        echo "goodbye";
-        echo "goodbye";
-        echo "goodbye";
 
         dd('return string');
     }
