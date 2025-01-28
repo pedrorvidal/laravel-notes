@@ -15,4 +15,9 @@ class AuthController extends Controller
     {
         echo "logout";
     }
+    public function loginSubmit(Request $request)
+    {
+        dd($request->all());
+        echo "loginSubmit";
+    }
 }
