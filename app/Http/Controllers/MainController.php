@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    dd('teste');
+    public function index()
+    {
+        dd('teste home');
+    }
 }
