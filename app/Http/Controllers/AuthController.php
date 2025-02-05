@@ -50,7 +50,7 @@ class AuthController extends Controller
         // }
         // echo "<br>Fim";
 
-        //get all the users from the database
+        //get all the users from the database as array
         // $users = User::all()->toArray();
 
         // as an object instance of model's class
