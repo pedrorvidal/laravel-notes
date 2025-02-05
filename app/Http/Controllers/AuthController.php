@@ -13,11 +13,6 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function logout()
-    {
-        echo "logout";
-    }
-
     public function loginSubmit(Request $request)
     {
         //Form Validation
@@ -74,23 +69,11 @@ class AuthController extends Controller
 
         echo "Login com sucesso!";
         dd($user);
+    }
 
-        // test database connection
-        // try {
-        //     DB::connection()->getPdo();
-        //     echo "Connection is OK!";
-        // } catch (\PDOException $e) {
-        //     echo "Connection failed: " .  $e->getMessage();
-        // }
-        // echo "<br>Fim";
-
-        //get all the users from the database as array
-        // $users = User::all()->toArray();
-
-        // as an object instance of model's class
-        // $userModel = new User();
-        // $users = $userModel->all()->toArray();
-
-        // dd($users);
+    public function logout()
+    {
+        session()->forget('user');
+        return redirect()->to('/login');
     }
 }
