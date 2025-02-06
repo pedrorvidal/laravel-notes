@@ -15,7 +15,7 @@ class CheckIsLogged
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // check if user is logged
+        // check if user is not  logged
         if (!session('user')) {
             return redirect('/login');
         }

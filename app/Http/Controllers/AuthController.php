@@ -68,7 +68,6 @@ class AuthController extends Controller
         ]);
 
         echo "Login com sucesso!";
-        dd($user);
     }
 
     public function logout()
