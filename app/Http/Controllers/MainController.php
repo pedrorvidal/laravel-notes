@@ -15,7 +15,11 @@ class MainController extends Controller
     {
         // load user's notes
         $id = session('user.id');
-        $notes = User::find($id)->notes()->get()->toArray();
+        $notes = User::find($id)
+            ->notes()
+            ->whereNull('deleted_at')
+            ->get()
+            ->toArray();
 
         // show home view
         return view('home', ['notes' => $notes]);
@@ -25,7 +29,6 @@ class MainController extends Controller
     {
         // show new note view
         return view('new_note');
-
     }
     public function newNoteSubmit(Request $request)
     {
@@ -63,7 +66,6 @@ class MainController extends Controller
         $note->save();
         // TODO: redirect to home
         return redirect()->route('home');
-
     }
     public function editNote($id)
     {
@@ -113,10 +115,23 @@ class MainController extends Controller
 
     public function deleteNote($id)
     {
-        // $id = $this->decryptId($id);
         $id = Operations::decryptId($id);
-        echo "I'm deleting note with id: $id";
+        // TODO:
+        $note = Note::find($id);
+        // TODO: show delete note confirmation
+        return view('delete_note', ['note' => $note]);
     }
 
-    //check if id is encrypted
+    public function deleteNoteConfirm($id)
+    {
+        $id = Operations::decryptId($id);
+        $note = Note::find($id);
+
+        // TODO: hard delete
+        // $note->delete();
+
+        //TODO: soft delete
+        $note->deleted_at = date('Y:m:d H:i:s');
+        $note->save();
+    }
 }
