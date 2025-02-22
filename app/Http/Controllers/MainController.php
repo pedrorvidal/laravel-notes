@@ -96,29 +96,23 @@ class MainController extends Controller
                 'text_note.max' => 'A nota deve ter no máximo :max caracteres',
             ]
         );
-        //TODO: check if note exists
+
         if ($request->note_id == null) {
             return redirect()->route('home');
         }
-        // TODO: decrypt note_id
         $id = Operations::decryptId($request->note_id);
-        // TODO: load note
         $note = Note::find($id);
-        // TODO: update note
         $note->title = $request->text_title;
         $note->text = $request->text_note;
         $note->save();
 
-        // TODO: redirect to home
         return redirect()->route('home');
     }
 
     public function deleteNote($id)
     {
         $id = Operations::decryptId($id);
-        // TODO:
         $note = Note::find($id);
-        // TODO: show delete note confirmation
         return view('delete_note', ['note' => $note]);
     }
 
