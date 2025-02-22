@@ -127,11 +127,16 @@ class MainController extends Controller
         $id = Operations::decryptId($id);
         $note = Note::find($id);
 
-        // TODO: hard delete
+        // 1: hard delete
         // $note->delete();
 
-        //TODO: soft delete
-        $note->deleted_at = date('Y:m:d H:i:s');
-        $note->save();
+        // 2: soft delete
+        // $note->deleted_at = date('Y:m:d H:i:s');
+        // $note->save();
+
+        //3: soft delete (property in model)
+        $note->delete();
+
+        return redirect()->route('home');
     }
 }
